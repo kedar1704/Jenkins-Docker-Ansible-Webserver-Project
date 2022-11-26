@@ -19,7 +19,7 @@ pipeline {
         }
 	    stage("Push docker image to docker hub"){
 		    steps{
-			    sh 'docker login -u “kedar1704” -p “OnePiece123@” docker.io
+			    sh 'docker login -u “kedar1704” -p “OnePiece123@” docker.io'
 			    sh 'docker tag $JOB_NAME:$BUILD_ID kedar1704/$JOB_NAME:latest'
 			    sh 'docker push kedar1704/$JOB_NAME:latest'
 		    }
