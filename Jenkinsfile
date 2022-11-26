@@ -27,7 +27,7 @@ pipeline {
 	    
 	    stage("Push to webserver"){
 		  steps{
-			  sh 'ssh  -o StrictHostKeyChecking=no -i EC2_Oregon.pem ec2-user@10.0.6.33'
+			  sh 'ssh  -o StrictHostKeyChecking=no -i /home/ec2-user/EC2_Oregon.pem ec2-user@10.0.6.33'
 			  sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
 			  sh 'sudo docker pull kedar1704/pipeline_deploytowebserver:latest'
 			  sh 'sudo docker run -d -p 8090:80 kedar1704/pipeline_deploytowebserver:latest'
