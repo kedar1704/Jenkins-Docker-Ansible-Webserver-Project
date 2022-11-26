@@ -5,7 +5,7 @@ pipeline {
         
 	    stage("Git login"){
 		    steps{
-	            sh 'https://github.com/kedar1704/Jenkins-Docker-Webserver-Project.git'
+	            git 'https://github.com/kedar1704/Jenkins-Docker-Webserver-Project.git'
             }
 	 }
 
