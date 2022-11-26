@@ -19,7 +19,7 @@ pipeline {
         }
 	    stage("Push docker image to docker hub"){
 		    steps{
-			    sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			    sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
 			    sh 'docker tag $JOB_NAME:$BUILD_ID kedar1704/$JOB_NAME:latest'
 			    sh 'docker push kedar1704/$JOB_NAME:latest'
 		    }
