@@ -6,7 +6,7 @@ pipeline {
 	    stage("Git login"){
   		steps {
       		git branch: 'main', url: 'https://github.com/kedar1704/Jenkins-Docker-Webserver-Project.git'
-     }
+
   }
 	 }
 
