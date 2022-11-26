@@ -2,7 +2,7 @@ pipeline {
     agent any 
 	
    environment{
-	   dockerhub= credentials("ee2cfeb8-89a3-4ec0-84da-1ad12fc784cd"
+	   dockerhub=credentials("ee2cfeb8-89a3-4ec0-84da-1ad12fc784cd")
 	}
 		
 
