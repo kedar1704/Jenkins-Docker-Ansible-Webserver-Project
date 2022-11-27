@@ -2,6 +2,10 @@
 - hosts: webservers
   become: true
   tasks:
+    - name: Delete Old Image
+      shell: docker rmi -f kedar1704/pipeline_deploytowebserver:latest
+    - name: Remove docker container
+      shell: docker kill -f shiny2
     - name: pulling image from docker hub
       shell: docker pull kedar1704/pipeline_deploytowebserver:latest
     - name: Running the container
