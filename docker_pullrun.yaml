@@ -5,4 +5,4 @@
     - name: pulling image from docker hub
       shell: docker pull kedar1704/pipeline_deploytowebserver:latest
     - name: Running the container
-      shell: docker run -d -p 8095:80 --name shiny3 kedar1704/pipeline_deploytowebserver:latest
+      shell: docker run -d -p 8095:80 --name shiny_app kedar1704/pipeline_deploytowebserver:latest
