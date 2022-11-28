@@ -25,12 +25,9 @@ pipeline {
 		    }
 	    }
 	    
-	    stage("Push to webserver"){
+	    stage("Push to ansibleserver"){
 		  steps{
-			  //sh 'ssh  -o "StrictHostKeyChecking=no" -i "/opt/ec2_oregon.pem" ec2-user@54.200.53.119 sudo yum install tree -y'
-			  sh 'ssh  -o "StrictHostKeyChecking=no"  -i "/opt/ec2_oregon.pem" ec2-user@54.200.53.119 echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
-			  sh 'ssh  -o "StrictHostKeyChecking=no" -i  "/opt/ec2_oregon.pem" ec2-user@54.200.53.119 sudo docker pull kedar1704/pipeline_deploytowebserver:latest'
-			  sh 'ssh  -o "StrictHostKeyChecking=no" -i  "/opt/ec2_oregon.pem" ec2-user@54.200.53.119 sudo docker run -d -p 8090:80 kedar1704/pipeline_deploytowebserver:latest'
+		      ansiblePlaybook credentialsId: 'private-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'docker_pullrun.yaml'
 		  }
 	    }
     }
