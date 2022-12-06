@@ -27,7 +27,6 @@ pipeline {
 	    
 	    stage("Push to webserver from ansibleserver"){
 		  steps{
-			ansiblePlaybook credentialsId: 'tomcat_newcred', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'docker_pullrun.yaml'		  }
-	    }
+			ansiblePlaybook credentialsId: 'tomcatscred', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'docker_pullrun.yaml'	    }
     }
 }
