@@ -34,7 +34,7 @@ pipeline {
 	    
 	        stage("Build another job"){
 		  steps{
-			  build 'test-project'
+			build 'trigger-test-job'		  
 		  }
 	    }
     }
