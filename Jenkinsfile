@@ -31,5 +31,11 @@ pipeline {
 			ansiblePlaybook credentialsId: 'final_ansi', disableHostKeyChecking: true, installation: 'ansible', inventory: 'dev.inv', playbook: 'docker_pullrun.yaml'
 		  }
 	    }
+	    
+	        stage("Build another job"){
+		  steps{
+			  build 'test-project'
+		  }
+	    }
     }
 }
